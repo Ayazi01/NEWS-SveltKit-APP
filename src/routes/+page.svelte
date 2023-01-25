@@ -4,18 +4,16 @@
 	export let data: PageData;
 
 	$: ({ posts } = data);
-
-	// console.log(data);
 </script>
 
 <h1>posts</h1>
 
 <p>showing {posts.pagination.limit} posts.</p>
 
-{#each posts.data as { slug, title }}
-	<ul>
+<ul>
+	{#each posts.data as post}
 		<li>
-			title: <a href="/posts/{slug}"> {title}</a>
+			<a href="/posts/{post.slug}"> {post.title}</a>
 		</li>
-	</ul>
-{/each}
+	{/each}
+</ul>
