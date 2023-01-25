@@ -1,12 +1,7 @@
 
 import { error } from "@sveltejs/kit";
 import type { PageLoad } from "./$types";
-function slugify(text: string) {
-  return text
-    .replace(/\s/g, '-')
-    .replace(/[^a-zA-Z0-9-]/g, '')
-    .toLowerCase();
-}
+import { slugify } from "../../../lib/utils.svelte";
 export const load:PageLoad = async ({params, parent})=>{
   
     const parentData = await parent()

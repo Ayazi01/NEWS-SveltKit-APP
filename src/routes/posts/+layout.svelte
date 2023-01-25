@@ -1,13 +1,8 @@
 <script lang="ts">
 	import type { LayoutData } from './$types';
+	import { slugify } from '../../lib/utils.svelte';
 
 	export let data: LayoutData;
-	function slugify(text: string) {
-		return text
-			.replace(/\s/g, '-')
-			.replace(/[^a-zA-Z0-9-]/g, '')
-			.toLowerCase();
-	}
 </script>
 
 <h1>posts</h1>
