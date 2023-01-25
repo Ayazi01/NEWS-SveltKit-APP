@@ -2,6 +2,12 @@
 	import type { LayoutData } from './$types';
 
 	export let data: LayoutData;
+	function slugify(text: string) {
+		return text
+			.replace(/\s/g, '-')
+			.replace(/[^a-zA-Z0-9-]/g, '')
+			.toLowerCase();
+	}
 </script>
 
 <h1>posts</h1>
@@ -11,9 +17,9 @@
 		<nav>
 			<h4>posts</h4>
 			<ul>
-				{#each data.posts.data as { slug, title, language }}
+				{#each data.posts.data as { title }}
 					<li>
-						title: <a href="/posts/{language}"> {title}</a>
+						<a href="/posts/{slugify(title)}"> {title}</a>
 					</li>
 				{/each}
 			</ul>
