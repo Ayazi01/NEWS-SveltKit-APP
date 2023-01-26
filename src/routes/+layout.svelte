@@ -6,6 +6,9 @@
 		<li>
 			<a href="/posts">posts</a>
 		</li>
+		<li>
+			<a href="/bookmarks">Bookmarks</a>
+		</li>
 	</ul>
 </nav>
 
