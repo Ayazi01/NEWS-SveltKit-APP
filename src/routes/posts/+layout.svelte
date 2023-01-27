@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import type { LayoutData } from './$types';
 	import { slugify } from '../../lib/utils.svelte';
 
@@ -33,4 +33,5 @@
 		gap: 4rem;
 		margin-top: 2rem;
 	}
-</style>
+</style> -->
+<slot />

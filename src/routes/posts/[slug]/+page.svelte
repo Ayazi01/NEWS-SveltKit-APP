@@ -1,42 +1,59 @@
 <script lang="ts">
-	import { writable } from 'svelte/store';
-	import { browser } from '$app/environment';
-	import type { PageData } from './$types';
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 	import { slugify } from '$lib/utils.svelte';
-	export let data: PageData;
-	// console.log(data.clickedPost);
-	function formatDate(date: Date) {
-		return new Intl.DateTimeFormat('en', {
-			dateStyle: 'long'
-		}).format(date);
-	}
+	let slug = $page.params.slug;
 
-	let toggle = writable<boolean>(false);
+	let posts: any;
+	let filtered_post;
+	let post_is_bookmarked = false;
 
-	function handleBookmark() {
-		if (!$toggle) {
-			const value = slugify(data.clickedPost[0].title);
-			const item = writable<string>(value);
-			item.subscribe((value) => {
-				localStorage.setItem('slug', value);
-			});
-		} else {
-			localStorage.removeItem('slug');
+	onMount(async () => {
+		//http://api.mediastack.com/v1/news?countries=us,in&access_key=c739c8bd8d8756c714c3841e2113a88f
+		const resourceUrl = `/api/news`;
+		const res = await fetch(resourceUrl);
+		posts = await res.json();
+		console.log(posts);
+		const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
+		const filtered_bookmarks = bookmarks.filter((bookmark: string) => bookmark == slug);
+
+		filtered_post = posts.data.filter((post: any) => slugify(post.title) == slug);
+		if (filtered_bookmarks.length == 1) {
+			post_is_bookmarked = true;
 		}
+	});
 
-		toggle.update((n) => !n);
+	function toggleBookmark() {
+		if (post_is_bookmarked) {
+			// remove from bookmark
+			const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
+			var index = bookmarks.indexOf(slug);
+			if (index !== -1) {
+				bookmarks.splice(index, 1);
+			}
+			localStorage.setItem('articles', JSON.stringify(bookmarks));
+			post_is_bookmarked = false;
+		} else {
+			// add to bookmark
+			const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
+			bookmarks.push(slug);
+			localStorage.setItem('articles', JSON.stringify(bookmarks));
+			post_is_bookmarked = true;
+		}
 	}
 </script>
 
-<hgroup>
-	<h1>{data.clickedPost[0].title}</h1>
+{#if filtered_post?.length == 1}
+	{@const post = filtered_post[0]}
 
-	<h2>{formatDate(data.clickedPost.createdAt)}</h2>
-</hgroup>
+	<div class="mb-4">
+		<p class="font-bold text-xl">{post.title}</p>
+		<p>{post.slug}</p>
+	</div>
 
-<div class="content">
-	{@html data.clickedPost[0].description}
-	<button on:click={handleBookmark}>
-		{$toggle ? 'delete from bookmarks' : 'bookmark this article'}
-	</button>
-</div>
+	<button on:click={toggleBookmark} class="border p-1"
+		>{post_is_bookmarked ? '🔥 Remove from' : '✔️ Add to'} Bookmarks</button
+	>
+{:else}
+	<p>Post not found</p>
+{/if}
