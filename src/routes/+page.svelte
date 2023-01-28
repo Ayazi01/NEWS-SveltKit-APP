@@ -17,7 +17,7 @@
 	// $: ({ posts } = data);
 </script>
 
-<h1 class="prose prose-2xl text-center m-10  text-3xl">Recent Articles</h1>
+<h1 class="prose prose-2xl text-center mx-auto pb-5  text-3xl">Recent Articles</h1>
 <div class=" container mx-auto">
 	<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 		{#if dataFetch}

@@ -50,8 +50,23 @@
 		<h1 class="font-bold text-xl my-10 mx-20 text-left">{post.title}</h1>
 		<img src={post.image} class=" w-1/2 pb-10 " alt="" />
 		<p class="prose lg:prose-base ">{post.description}</p>
-		<button on:click={toggleBookmark} class="border p-10 "
-			>{postIsBookmarked ? '🔥 Remove from' : '✔️ Add to'} Bookmarks</button
+		<button on:click={toggleBookmark} class=" p-5 border-gray-400 border-2 flex justify-center ">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				stroke="currentColor"
+				class="w-6 h-6 {postIsBookmarked ? 'fill-blue-50' : ''}0"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
+				/>
+			</svg>
+
+			{postIsBookmarked ? ' Remove from' : ' Add to'} Bookmarks</button
 		>
 	</div>
 {:else}
