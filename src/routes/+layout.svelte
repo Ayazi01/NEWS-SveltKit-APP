@@ -67,5 +67,5 @@
 		<slot />
 	</main>
 
-	<footer class="block bottom-0 text-center mt-20 py-10">all rights preserved</footer>
+	<footer class="block bottom-0 text-center mt-20 py-10">all rights reserved</footer>
 </body>
