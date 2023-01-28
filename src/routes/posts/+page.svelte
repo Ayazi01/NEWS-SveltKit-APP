@@ -18,17 +18,14 @@
 	// $: ({ posts } = data);
 </script>
 
-<h1>posts</h1>
-
-<ul>
-	{#if dataFetch}
-		<!-- content here -->
-		{#each posts?.data as post}
-			<!-- {console.log(post)} -->
-			<!-- <Postcard slug={slugify(post.title)} title={post.title} /> -->
-			<a href="posts/{slugify(post.title)}">
-				<p>{post.title}</p>
-			</a>
-		{/each}
-	{/if}
-</ul>
+<h1 class="prose prose-2xl text-center m-10  text-3xl">All Articles</h1>
+<div class=" container mx-auto">
+	<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+		{#if dataFetch}
+			<!-- content here -->
+			{#each posts?.data as post}
+				<Postcard title={post.title} image={post.image} slug={slugify(post.title)} />
+			{/each}
+		{/if}
+	</ul>
+</div>

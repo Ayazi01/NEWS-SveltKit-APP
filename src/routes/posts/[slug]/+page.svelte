@@ -5,8 +5,8 @@
 	let slug = $page.params.slug;
 
 	let posts: any;
-	let filtered_post;
-	let post_is_bookmarked = false;
+	let filteredPost;
+	let postIsBookmarked = false;
 
 	onMount(async () => {
 		//http://api.mediastack.com/v1/news?countries=us,in&access_key=c739c8bd8d8756c714c3841e2113a88f
@@ -17,14 +17,14 @@
 		const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
 		const filtered_bookmarks = bookmarks.filter((bookmark: string) => bookmark == slug);
 
-		filtered_post = posts.data.filter((post: any) => slugify(post.title) == slug);
+		filteredPost = posts.data.filter((post: any) => slugify(post.title) == slug);
 		if (filtered_bookmarks.length == 1) {
-			post_is_bookmarked = true;
+			postIsBookmarked = true;
 		}
 	});
 
 	function toggleBookmark() {
-		if (post_is_bookmarked) {
+		if (postIsBookmarked) {
 			// remove from bookmark
 			const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
 			var index = bookmarks.indexOf(slug);
@@ -32,28 +32,28 @@
 				bookmarks.splice(index, 1);
 			}
 			localStorage.setItem('articles', JSON.stringify(bookmarks));
-			post_is_bookmarked = false;
+			postIsBookmarked = false;
 		} else {
 			// add to bookmark
 			const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
 			bookmarks.push(slug);
 			localStorage.setItem('articles', JSON.stringify(bookmarks));
-			post_is_bookmarked = true;
+			postIsBookmarked = true;
 		}
 	}
 </script>
 
-{#if filtered_post?.length == 1}
-	{@const post = filtered_post[0]}
+{#if filteredPost?.length == 1}
+	{@const post = filteredPost[0]}
 
-	<div class="mb-4">
-		<p class="font-bold text-xl">{post.title}</p>
-		<p>{post.slug}</p>
+	<div class="mb-4 flex justify-center flex-col items-center  ">
+		<h1 class="font-bold text-xl my-10 mx-20 text-left">{post.title}</h1>
+		<img src={post.image} class=" w-1/2 pb-10 " alt="" />
+		<p class="prose lg:prose-base ">{post.description}</p>
+		<button on:click={toggleBookmark} class="border p-10 "
+			>{postIsBookmarked ? '🔥 Remove from' : '✔️ Add to'} Bookmarks</button
+		>
 	</div>
-
-	<button on:click={toggleBookmark} class="border p-1"
-		>{post_is_bookmarked ? '🔥 Remove from' : '✔️ Add to'} Bookmarks</button
-	>
 {:else}
 	<p>Post not found</p>
 {/if}

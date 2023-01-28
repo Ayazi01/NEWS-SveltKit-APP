@@ -33,13 +33,15 @@
 	});
 </script>
 
-<h1 class="text-3xl mb-4">Bookmarks:</h1>
+<h1 class="prose prose-2xl text-center m-10  text-3xl">Favourite Articles</h1>
 
-<div class="flex flex-col gap-4">
+<div class="container mx-auto">
 	{#if bookmark_posts.length > 0}
-		{#each bookmark_posts as post}
-			<p>{post.title}</p>
-		{/each}
+		<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+			{#each bookmark_posts as post}
+				<Postcard title={post.title} image={post.image} slug={slugify(post.title)} />
+			{/each}
+		</ul>
 	{:else}
 		<p>No Bookmarks stored!</p>
 	{/if}
