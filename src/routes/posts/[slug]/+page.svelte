@@ -49,7 +49,7 @@
 	<div class="mb-4 flex justify-center flex-col items-center  ">
 		<h1 class="font-bold text-xl my-10 mx-20 text-left">{post.title}</h1>
 		<img src={post.image} class=" w-1/2 pb-10 " alt="" />
-		<p class="prose lg:prose-base ">{post.description}</p>
+		<p class="prose lg:prose-base text-center">{post.description}</p>
 		<button on:click={toggleBookmark} class=" p-5 border-gray-400 border-2 flex justify-center ">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

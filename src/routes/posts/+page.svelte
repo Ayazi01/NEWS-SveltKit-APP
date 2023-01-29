@@ -4,7 +4,10 @@
 	import { onMount } from 'svelte';
 	import Postcard from '$lib/postcard.svelte';
 	// export let data: PageData;
+	import type { LayoutData } from '../$types';
 
+	export let data: LayoutData;
+	console.log(data.title);
 	let posts: any;
 	let dataFetch = false;
 	onMount(async () => {
