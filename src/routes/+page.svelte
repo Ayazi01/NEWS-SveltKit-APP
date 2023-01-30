@@ -3,20 +3,19 @@
 	import { slugify } from '../lib/utils.svelte';
 	import { onMount } from 'svelte';
 	import Postcard from '$lib/postcard.svelte';
-	// export let data: PageData;
 
+	// onmounting data
 	let posts: any;
 	let dataFetch = false;
 	onMount(async () => {
-		//http://api.mediastack.com/v1/news?countries=us,in&access_key=c739c8bd8d8756c714c3841e2113a88f
 		const resourceUrl = `/api/news`;
 		const res = await fetch(resourceUrl);
 		posts = await res.json();
 		dataFetch = true;
 	});
-	// $: ({ posts } = data);
 </script>
 
+<!-- rendering data -->
 <h1 class="prose prose-2xl text-center mx-auto pb-5  text-3xl">Recent Articles</h1>
 <div class=" container mx-auto">
 	<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

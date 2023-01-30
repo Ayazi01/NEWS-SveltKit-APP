@@ -7,20 +7,22 @@
 	let posts: any;
 	let filteredPost;
 	let postIsBookmarked = false;
+	let isOnMounted: boolean = false;
 
+	// onmouting data
 	onMount(async () => {
-		//http://api.mediastack.com/v1/news?countries=us,in&access_key=c739c8bd8d8756c714c3841e2113a88f
 		const resourceUrl = `/api/news`;
 		const res = await fetch(resourceUrl);
 		posts = await res.json();
 		console.log(posts);
 		const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
-		const filtered_bookmarks = bookmarks.filter((bookmark: string) => bookmark == slug);
+		const filteredBookmarks = bookmarks.filter((bookmark: string) => bookmark == slug);
 
-		filteredPost = posts.data.filter((post: any) => slugify(post.title) == slug);
-		if (filtered_bookmarks.length == 1) {
+		filteredPost = posts.data?.filter((post: any) => slugify(post.title) == slug);
+		if (filteredBookmarks.length == 1) {
 			postIsBookmarked = true;
 		}
+		isOnMounted = true;
 	});
 
 	function toggleBookmark() {
@@ -57,7 +59,7 @@
 				viewBox="0 0 24 24"
 				stroke-width="1.5"
 				stroke="currentColor"
-				class="w-6 h-6 {postIsBookmarked ? 'fill-blue-50' : ''}0"
+				class="w-6 h-6 {postIsBookmarked ? 'fill-blue-500' : ''}"
 			>
 				<path
 					stroke-linecap="round"

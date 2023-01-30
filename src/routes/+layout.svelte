@@ -14,12 +14,9 @@
 
 <body>
 	<main>
-		<!-- navbar -->
 		<div class="relative container mx-auto p-6  mt-10 max-w-980 ">
+			<!-- navbar -->
 			<nav>
-				<!-- flex container -->
-				<!-- Flex container -->
-
 				<div class="flex items-center  justify-between ">
 					<!-- Logo -->
 					<div
