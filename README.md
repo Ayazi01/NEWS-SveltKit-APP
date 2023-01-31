@@ -1,6 +1,6 @@
 # create-svelte
 
-[![Node.js CI](https://github.com/Ayazi01/Ayazi01-Mediastack/actions/workflows/node.js.yml/badge.svg)](https://github.com/Ayazi01/Ayazi01-Mediastack/actions/workflows/node.js.yml)
+[![Node.js CI](https://github.com/Ayazi01/NEWS-SveltKit-APP/actions/workflows/node.js.yml/badge.svg)](https://github.com/Ayazi01/NEWS-SveltKit-APP/actions/workflows/node.js.yml)
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
