@@ -1,24 +1,22 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { slugify } from '$lib/utils.svelte';
+	import { slugify } from '$lib/utils';
+	import type { PageData } from '../$types';
+
+	export let data: PageData;
 	let slug = $page.params.slug;
 
-	let posts: any;
 	let filteredPost;
 	let postIsBookmarked = false;
 	let isOnMounted: boolean = false;
 
 	// onmouting data
 	onMount(async () => {
-		const resourceUrl = `/api/news`;
-		const res = await fetch(resourceUrl);
-		posts = await res.json();
-		console.log(posts);
 		const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
 		const filteredBookmarks = bookmarks.filter((bookmark: string) => bookmark == slug);
 
-		filteredPost = posts.data?.filter((post: any) => slugify(post.title) == slug);
+		filteredPost = data.data?.filter((post: any) => slugify(post.title) == slug);
 		if (filteredBookmarks.length == 1) {
 			postIsBookmarked = true;
 		}
@@ -49,9 +47,9 @@
 	{@const post = filteredPost[0]}
 
 	<div class="mb-4 flex justify-center flex-col items-center  ">
-		<h1 class="font-bold text-xl my-10 mx-20 text-left">{post.title}</h1>
-		<img src={post.image} class=" w-1/2 pb-10 " alt="" />
-		<p class="prose lg:prose-base text-center">{post.description}</p>
+		<h1 class="font-bold text-xl my-10 mx-20 text-left">{post?.title}</h1>
+		<img src={post?.image} class=" w-1/2 pb-10 " alt="" />
+		<p class=" text-center">{post?.description}</p>
 		<button on:click={toggleBookmark} class=" p-5 border-gray-400 border-2 flex justify-center ">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
