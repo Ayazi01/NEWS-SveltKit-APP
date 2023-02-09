@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@jridgewell/sourcemap-codec': ^1.4.14
   '@sveltejs/adapter-auto': ^1.0.3
-  '@sveltejs/kit': ^1.5.0
+  '@sveltejs/kit': ^1.5.2
   '@tailwindcss/typography': ^0.5.9
   '@typescript-eslint/eslint-plugin': ^5.51.0
   '@typescript-eslint/parser': ^5.51.0
@@ -25,18 +25,18 @@ specifiers:
   tslib: ^2.5.0
   typescript: ^4.9.5
   vite: ^4.1.1
-  zod: ^3.20.3
+  zod: ^3.20.6
 
 dependencies:
   '@jridgewell/sourcemap-codec': 1.4.14
   dotenv: 16.0.3
   sourcemap-codec: 1.4.8
   svelte-hmr: 0.15.1_svelte@3.55.1
-  zod: 3.20.3
+  zod: 3.20.6
 
 devDependencies:
-  '@sveltejs/adapter-auto': 1.0.3_@sveltejs+kit@1.5.0
-  '@sveltejs/kit': 1.5.0_svelte@3.55.1+vite@4.1.1
+  '@sveltejs/adapter-auto': 1.0.3_@sveltejs+kit@1.5.2
+  '@sveltejs/kit': 1.5.2_svelte@3.55.1+vite@4.1.1
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.6
   '@typescript-eslint/eslint-plugin': 5.51.0_b635kmla6dsb4frxfihkw4m47e
   '@typescript-eslint/parser': 5.51.0_4vsywjlpuriuw3tl5oq6zy5a64
@@ -333,17 +333,17 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
-  /@sveltejs/adapter-auto/1.0.3_@sveltejs+kit@1.5.0:
+  /@sveltejs/adapter-auto/1.0.3_@sveltejs+kit@1.5.2:
     resolution: {integrity: sha512-hc7O12YQqvZ1CD4fo1gMJuPzBZvuoG5kwxb2RRoz4fVoB8B2vuPO2cY751Ln0G6T/HMrAf8kCqw6Pg+wbxcstw==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.5.0_svelte@3.55.1+vite@4.1.1
+      '@sveltejs/kit': 1.5.2_svelte@3.55.1+vite@4.1.1
       import-meta-resolve: 2.2.1
     dev: true
 
-  /@sveltejs/kit/1.5.0_svelte@3.55.1+vite@4.1.1:
-    resolution: {integrity: sha512-AkWgCO9i2djZjTqCgIQJ5XfnSzRINowh2w2Gk9wDRuTwxKizSuYe3jNvds/HCDDGHo8XE5E0yWNC9j2XxbrX+g==}
+  /@sveltejs/kit/1.5.2_svelte@3.55.1+vite@4.1.1:
+    resolution: {integrity: sha512-ZLi5x1dy5M4EU/NlH/fvSJ1k2wT3/04NaEOkSMJvGS0JYyFPn+H2tXbVQg7XI/eX84d5GeScxwmn4UVZWaMbsA==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     requiresBuild: true
@@ -677,7 +677,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001451
-      electron-to-chromium: 1.4.289
+      electron-to-chromium: 1.4.292
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
     dev: true
@@ -836,8 +836,8 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /electron-to-chromium/1.4.289:
-    resolution: {integrity: sha512-relLdMfPBxqGCxy7Gyfm1HcbRPcFUJdlgnCPVgQ23sr1TvUrRJz0/QPoGP0+x41wOVSTN/Wi3w6YDgHiHJGOzg==}
+  /electron-to-chromium/1.4.292:
+    resolution: {integrity: sha512-ESWOSyJy5odDlE8wvh5NNAMORv4r6assPwIPGHEMWrWD0SONXcG/xT+9aD9CQyeRwyYDPo6dJT4Bbeg5uevVQQ==}
     dev: true
 
   /es6-promise/3.3.1:
@@ -2159,6 +2159,6 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /zod/3.20.3:
-    resolution: {integrity: sha512-+MLeeUcLTlnzVo5xDn9+LVN9oX4esvgZ7qfZczBN+YVUvZBafIrPPVyG2WdjMWU2Qkb2ZAh2M8lpqf1wIoGqJQ==}
+  /zod/3.20.6:
+    resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
     dev: false

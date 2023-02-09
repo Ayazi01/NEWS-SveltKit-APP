@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { slugify } from '$lib/utils';
+	import { slugify } from '$lib/utils/utils';
 	import type { PageData } from '../$types';
 
 	export let data: PageData;
@@ -35,7 +35,6 @@
 			postIsBookmarked = false;
 		} else {
 			// add to bookmark
-			console.log('hello');
 			const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
 			bookmarks.push(slug);
 			localStorage.setItem('articles', JSON.stringify(bookmarks));
