@@ -22,24 +22,20 @@
 
 		bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
 		console.log(bookmarks);
-		bookmarks.forEach((bookmark: string) => {
-			// get post coresponding to the slug
-			filtered_posts = data?.data.filter((post: Datum) => slugify(post.title) == bookmark);
-			if (filtered_posts.length == 1) {
-				bookmark_posts?.push(filtered_posts[0]);
-			}
-		});
-		// update variable to rerender each block
-		bookmark_posts = bookmark_posts;
+
+		filtered_posts = data?.data.filter((post: Datum) => bookmarks.includes(slugify(post.title)));
 	});
+
+	// update variable to rerender each block
+	// bookmark_posts = bookmark_posts;
 </script>
 
 <h1 class=" text-center mx-auto pb-5  text-3xl">Favourite Articles</h1>
 
 <div class=" container mx-auto flex justify-center items-center">
-	{#if bookmark_posts?.length > 0}
+	{#if filtered_posts?.length > 0}
 		<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-			{#each bookmark_posts as post}
+			{#each filtered_posts as post}
 				<Postcard title={post.title} image={post.image} slug={slugify(post.title)} />
 			{/each}
 		</ul>
