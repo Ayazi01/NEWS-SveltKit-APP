@@ -21,11 +21,12 @@
 		// get bookmarks
 
 		bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
+		console.log(bookmarks);
 		bookmarks.forEach((bookmark: string) => {
 			// get post coresponding to the slug
 			filtered_posts = data?.data.filter((post: Datum) => slugify(post.title) == bookmark);
 			if (filtered_posts.length == 1) {
-				bookmark_posts.push(filtered_posts[0]);
+				bookmark_posts?.push(filtered_posts[0]);
 			}
 		});
 		// update variable to rerender each block

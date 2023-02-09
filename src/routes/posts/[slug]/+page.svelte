@@ -35,6 +35,7 @@
 			postIsBookmarked = false;
 		} else {
 			// add to bookmark
+			console.log('hello');
 			const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
 			bookmarks.push(slug);
 			localStorage.setItem('articles', JSON.stringify(bookmarks));
