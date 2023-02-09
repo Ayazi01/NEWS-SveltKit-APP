@@ -4,10 +4,10 @@
 	export let image = '';
 </script>
 
-<li class=" flex justify-center border-2 border-gray-300 rounded-xl p-2 pb-0 bg-gray-100">
+<li class=" flex justify-center rounded-xl border-2 border-gray-300 bg-gray-100 p-2 pb-0">
 	<a href="posts/{slug}" class=" text-center">
 		<img
-			class="object-fill h-60 w-1/1 mt-2 "
+			class="w-1/1 mt-2 h-60 object-fill "
 			src={image == null ? '/nophoto.png' : image}
 			alt={title}
 		/>

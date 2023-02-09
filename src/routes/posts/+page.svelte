@@ -17,9 +17,9 @@
 
 {#if browser}
 	<!-- rending data -->
-	<h1 class=" text-center m-10  text-3xl">All Articles</h1>
+	<h1 class=" m-10 text-center  text-3xl">All Articles</h1>
 	<div class=" container mx-auto">
-		<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+		<ul class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
 			{#if dataFetch}
 				<!-- content here -->
 				{#each data?.data as post}

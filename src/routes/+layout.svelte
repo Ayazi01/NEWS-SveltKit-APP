@@ -13,19 +13,19 @@
 
 <body>
 	<main>
-		<div class="relative container mx-auto p-6  mt-10 max-w-980 ">
+		<div class="max-w-980 container relative mx-auto  mt-10 p-6 ">
 			<!-- navbar -->
 			<nav>
 				<div class="flex items-center  justify-between ">
 					<!-- Logo -->
 					<div
 						id="logoDiv"
-						class=" flex items-center justify-between pr-0 mr-0 text-3xl font-bold "
+						class=" mr-0 flex items-center justify-between pr-0 text-3xl font-bold "
 					>
 						FakeNews
 					</div>
 					<!-- Menu Items -->
-					<div class="hidden space-x-6 md:flex justify-end ">
+					<div class="hidden justify-end space-x-6 md:flex ">
 						<a href="/" class="hover:text-darkGrayishBlue ">Home</a>
 						<a href="/posts" class="hover:text-darkGrayishBlue">All Articles</a>
 						<a href="/bookmarks" class="hover:text-darkGrayishBlue">Bookmarks</a>
@@ -37,7 +37,7 @@
 						class:open={isOpen}
 						on:click={clickHandler}
 						id="menu-btn "
-						class=" hamburger  relative bottom-2 right-5 md:hidden  focus:outline-none"
+						class=" hamburger  relative bottom-2 right-5 focus:outline-none  md:hidden"
 					>
 						<span class="hamburger-top" />
 						<span class="hamburger-middle" />
@@ -51,7 +51,7 @@
 						id="menu"
 						class="absolute {isOpen ? 'flex' : ''} flex-col items-center {!isOpen
 							? 'hidden'
-							: ''} self-end py-8 mt-5 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md "
+							: ''} left-6 right-6 mt-5 space-y-6 self-end bg-white py-8 font-bold drop-shadow-md sm:w-auto sm:self-center "
 					>
 						<a href="/" on:click={clickHandler}>Home</a>
 						<a href="/posts" on:click={clickHandler}>All Articles</a>
@@ -63,5 +63,5 @@
 		<slot />
 	</main>
 
-	<footer class="block bottom-0 text-center mt-20 py-10">all rights reserved</footer>
+	<footer class="bottom-0 mt-20 block py-10 text-center">all rights reserved</footer>
 </body>
