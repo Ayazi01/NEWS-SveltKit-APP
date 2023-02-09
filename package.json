@@ -35,10 +35,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@jridgewell/sourcemap-codec": "^1.4.14",
-		"dotenv": "^16.0.3",
-		"sourcemap-codec": "^1.4.8",
-		"svelte-hmr": "^0.15.1",
-		"zod": "^3.20.6"
+		
 	}
 }
