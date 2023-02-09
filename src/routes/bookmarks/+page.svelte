@@ -16,7 +16,6 @@
 		bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
 
 		filtered_posts = data?.data.filter((post: Posts) => bookmarks.includes(slugify(post.title)));
-		console.log(filtered_posts);
 	});
 </script>
 

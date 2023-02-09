@@ -1,5 +1,4 @@
 <script>
-	import { toggle_class } from 'svelte/internal';
 	import '../app.postcss';
 	/**
 	 * @type {any}

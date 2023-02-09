@@ -3,20 +3,21 @@
 	import { onMount } from 'svelte';
 	import { slugify } from '$lib/utils/utils';
 	import type { PageData } from '../$types';
+	import type { Posts } from '$lib/interfaces/posts.interface';
 
 	export let data: PageData;
 	let slug = $page.params.slug;
 
 	let filteredPost;
 	let postIsBookmarked = false;
-	let isOnMounted: boolean = false;
+	let isOnMounted = false;
 
 	// onmouting data
 	onMount(async () => {
 		const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
 		const filteredBookmarks = bookmarks.filter((bookmark: string) => bookmark == slug);
 
-		filteredPost = data.data?.filter((post: any) => slugify(post.title) == slug);
+		filteredPost = data.data?.filter((post: Posts) => slugify(post.title) == slug);
 		if (filteredBookmarks.length == 1) {
 			postIsBookmarked = true;
 		}

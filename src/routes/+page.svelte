@@ -8,7 +8,7 @@
 
 	// onmounting data
 
-	let dataFetch: boolean = false;
+	let dataFetch = false;
 	onMount(async () => {
 		dataFetch = true;
 	});

@@ -2,8 +2,6 @@
 	export let slug = '';
 	export let title = '';
 	export let image = '';
-
-	// console.log(title);
 </script>
 
 <li class=" flex justify-center border-2 border-gray-300 rounded-xl p-2 pb-0 bg-gray-100">
