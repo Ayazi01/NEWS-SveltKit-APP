@@ -6,7 +6,7 @@ name: Node.js CI
 
 env:
   # Setting an environment variable with the value of a configuration variable
-  env_var: ${{ vars.SECRET_API_KEY }}
+  SECRET_API_KEY: ${{ secrets.SECRET_API_KEY }}
 on:
   push:
     branches: [main]
