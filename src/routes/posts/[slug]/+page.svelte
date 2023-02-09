@@ -47,18 +47,18 @@
 {#if filteredPost?.length == 1}
 	{@const post = filteredPost[0]}
 
-	<div class="mb-4 flex justify-center flex-col items-center  ">
-		<h1 class="font-bold text-xl my-10 mx-20 text-left">{post?.title}</h1>
+	<div class="mb-4 flex flex-col items-center justify-center  ">
+		<h1 class="my-10 mx-20 text-left text-xl font-bold">{post?.title}</h1>
 		<img src={post?.image} class=" w-1/2 pb-10 " alt="" />
 		<p class=" text-center">{post?.description}</p>
-		<button on:click={toggleBookmark} class=" p-5 border-gray-400 border-2 flex justify-center ">
+		<button on:click={toggleBookmark} class=" flex justify-center border-2 border-gray-400 p-5 ">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke-width="1.5"
 				stroke="currentColor"
-				class="w-6 h-6 {postIsBookmarked ? 'fill-blue-500' : ''}"
+				class="h-6 w-6 {postIsBookmarked ? 'fill-blue-500' : ''}"
 			>
 				<path
 					stroke-linecap="round"
