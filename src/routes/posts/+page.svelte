@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { slugify } from '$lib/utils/utils';
 	import { onMount } from 'svelte';
-	import Postcard from '$lib/components/postcard.svelte';
+	import Postcard from '../../lib/components/Postcards.svelte';
 	import { browser } from '$app/environment';
 	// export let data: PageData;
 	import type { PageData } from '../$types';
