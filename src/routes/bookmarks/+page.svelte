@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Postcard from '$lib/components/postcard.svelte';
+	import Postcard from '../../lib/components/Postcards.svelte';
 	import { slugify } from '$lib/utils/utils';
 	import { onMount } from 'svelte';
 	import type { Posts } from '$lib/interfaces/posts.interface';
