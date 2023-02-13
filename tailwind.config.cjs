@@ -1,7 +1,7 @@
 const config = {
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
-		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
+		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}',
 	],
 
 	theme: {
@@ -9,7 +9,7 @@ const config = {
 			sm: '480px',
 			md: '768px',
 			lg: '976px',
-			xl: '1440px'
+			xl: '1440px',
 		},
 		extend: {
 			colors: {
@@ -20,12 +20,12 @@ const config = {
 				darkGrayishBlue: 'hsl(227, 12%, 61%)',
 				veryDarkBlue: 'hsl(233, 12%, 13%)',
 				veryPaleRed: 'hsl(13, 100%, 96%)',
-				veryLightGray: 'hsl(0, 0%, 98%)'
-			}
-		}
+				veryLightGray: 'hsl(0, 0%, 98%)',
+			},
+		},
 	},
 
-	plugins: [require('@tailwindcss/typography')]
-};
+	plugins: [require('@tailwindcss/typography')],
+}
 
-module.exports = config;
+module.exports = config

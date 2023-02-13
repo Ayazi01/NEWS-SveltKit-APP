@@ -1,7 +1,7 @@
 <script lang="ts">
-	export let slug = '';
-	export let title = '';
-	export let image: string | null = null;
+	export let slug = ''
+	export let title = ''
+	export let image: string | null = null
 </script>
 
 <li class=" flex justify-center rounded-xl border-2 border-gray-300 bg-gray-100 p-2 pb-0">
