@@ -33,6 +33,7 @@
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-storybook": "^0.6.10",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"husky": "^8.0.3",
 		"postcss": "^8.4.21",
 		"postcss-load-config": "^4.0.1",
 		"prettier": "^2.8.4",
