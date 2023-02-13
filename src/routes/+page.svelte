@@ -1,17 +1,17 @@
 <script lang="ts">
-	import { slugify } from '../lib/utils/utils';
-	import { onMount } from 'svelte';
-	import Postcard from '$lib/components/Postcards.svelte';
-	import type { PageData } from './$types';
+	import { slugify } from '../lib/utils/utils'
+	import { onMount } from 'svelte'
+	import Postcard from '$lib/components/Postcards.svelte'
+	import type { PageData } from './$types'
 
-	export let data: PageData;
+	export let data: PageData
 
 	// onmounting data
 
-	let dataFetch = false;
+	let dataFetch = false
 	onMount(async () => {
-		dataFetch = true;
-	});
+		dataFetch = true
+	})
 </script>
 
 <!-- rendering data -->

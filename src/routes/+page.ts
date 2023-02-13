@@ -1,9 +1,9 @@
-import type { PageLoad } from './$types';
+import type { PageLoad } from './$types'
 
-let posts;
+let posts
 export const load = (async ({ fetch }) => {
-	const resourceUrl = `/api/news`;
-	const res = await fetch(resourceUrl);
-	posts = await res.json();
-	return posts;
-}) satisfies PageLoad;
+	const resourceUrl = `/api/news`
+	const res = await fetch(resourceUrl)
+	posts = await res.json()
+	return posts
+}) satisfies PageLoad

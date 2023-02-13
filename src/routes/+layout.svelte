@@ -1,67 +1,13 @@
 <script>
-	import '../app.postcss';
-	/**
-	 * @type {any}
-	 */
-
-	let isOpen = false;
-
-	function clickHandler() {
-		isOpen = !isOpen;
-	}
+	import '../app.postcss'
+	import Navbar from '../lib/components/Navbar.svelte'
+	import Footer from '$lib/components/Footer.svelte'
 </script>
 
 <body>
 	<main>
-		<div class="max-w-980 container relative mx-auto  mt-10 p-6 ">
-			<!-- navbar -->
-			<nav>
-				<div class="flex items-center  justify-between ">
-					<!-- Logo -->
-					<div
-						id="logoDiv"
-						class=" mr-0 flex items-center justify-between pr-0 text-3xl font-bold "
-					>
-						FakeNews
-					</div>
-					<!-- Menu Items -->
-					<div class="hidden justify-end space-x-6 md:flex ">
-						<a href="/" class="hover:text-darkGrayishBlue ">Home</a>
-						<a href="/posts" class="hover:text-darkGrayishBlue">All Articles</a>
-						<a href="/bookmarks" class="hover:text-darkGrayishBlue">Bookmarks</a>
-					</div>
-					<!-- Button -->
-
-					<!-- Hamburger Icon -->
-					<button
-						class:open={isOpen}
-						on:click={clickHandler}
-						id="menu-btn "
-						class=" hamburger  relative bottom-2 right-5 focus:outline-none  md:hidden"
-					>
-						<span class="hamburger-top" />
-						<span class="hamburger-middle" />
-						<span class="hamburger-bottom" />
-					</button>
-				</div>
-
-				<!-- Mobile Menu -->
-				<div class="md:hidden">
-					<div
-						id="menu"
-						class="absolute {isOpen ? 'flex' : ''} flex-col items-center {!isOpen
-							? 'hidden'
-							: ''} left-6 right-6 mt-5 space-y-6 self-end bg-white py-8 font-bold drop-shadow-md sm:w-auto sm:self-center "
-					>
-						<a href="/" on:click={clickHandler}>Home</a>
-						<a href="/posts" on:click={clickHandler}>All Articles</a>
-						<a href="/bookmarks" on:click={clickHandler}>Bookmarks</a>
-					</div>
-				</div>
-			</nav>
-		</div>
+		<Navbar />
 		<slot />
 	</main>
-
-	<footer class="bottom-0 mt-20 block py-10 text-center">all rights reserved</footer>
+	<Footer />
 </body>

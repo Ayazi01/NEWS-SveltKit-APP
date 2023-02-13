@@ -1,75 +1,37 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
-	import { slugify } from '$lib/utils/utils';
-	import type { PageData } from '../$types';
-	import type { Posts } from '$lib/interfaces/posts.interface';
+	import { page } from '$app/stores'
+	import { onMount } from 'svelte'
+	import { slugify } from '$lib/utils/utils'
+	import type { PageData } from '../$types'
+	import type { Posts } from '$lib/interfaces/posts.interface'
+	import BookmarkBtn from '$lib/components/BookmarkBtn.svelte'
+	import Article from '$lib/components/Article.svelte'
 
-	export let data: PageData;
-	let slug = $page.params.slug;
+	export let data: PageData
+	let slug = $page.params.slug
 
-	let filteredPost;
-	let postIsBookmarked = false;
-	let isOnMounted = false;
+	let filteredPost
+	let postIsBookmarked = false
+	let isOnMounted = false
 
 	// onmouting data
 	onMount(async () => {
-		const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
-		const filteredBookmarks = bookmarks.filter((bookmark: string) => bookmark == slug);
+		const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]')
+		const filteredBookmarks = bookmarks.filter((bookmark: string) => bookmark == slug)
 
-		filteredPost = data.data?.filter((post: Posts) => slugify(post.title) == slug);
+		filteredPost = data.data?.filter((post: Posts) => slugify(post.title) == slug)
 		if (filteredBookmarks.length == 1) {
-			postIsBookmarked = true;
+			postIsBookmarked = true
 		}
-		isOnMounted = true;
-	});
-
-	function toggleBookmark() {
-		if (postIsBookmarked) {
-			// remove from bookmark
-			const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
-			var index = bookmarks.indexOf(slug);
-			if (index !== -1) {
-				bookmarks.splice(index, 1);
-			}
-			localStorage.setItem('articles', JSON.stringify(bookmarks));
-			postIsBookmarked = false;
-		} else {
-			// add to bookmark
-			const bookmarks = JSON.parse(localStorage.getItem('articles') ?? '[]');
-			bookmarks.push(slug);
-			localStorage.setItem('articles', JSON.stringify(bookmarks));
-			postIsBookmarked = true;
-		}
-	}
+		isOnMounted = true
+	})
 </script>
 
 {#if filteredPost?.length == 1}
 	{@const post = filteredPost[0]}
 
-	<div class="mb-4 flex flex-col items-center justify-center  ">
-		<h1 class="my-10 mx-20 text-left text-xl font-bold">{post?.title}</h1>
-		<img src={post?.image} class=" w-1/2 pb-10 " alt="" />
-		<p class=" text-center">{post?.description}</p>
-		<button on:click={toggleBookmark} class=" flex justify-center border-2 border-gray-400 p-5 ">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke-width="1.5"
-				stroke="currentColor"
-				class="h-6 w-6 {postIsBookmarked ? 'fill-blue-500' : ''}"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
-				/>
-			</svg>
-
-			{postIsBookmarked ? ' Remove from' : ' Add to'} Bookmarks</button
-		>
-	</div>
+	<Article {post} {postIsBookmarked} {slug} />
+	<!-- <BookmarkBtn /> -->
 {:else}
 	<p>Post not found</p>
 {/if}
