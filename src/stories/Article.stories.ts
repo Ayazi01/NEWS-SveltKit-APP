@@ -17,6 +17,11 @@ export const Articles: StoryObj<typeof meta> = {
 			url: 'https://en.mercopress.com/2022/12/05/white-house-against-trump-s-attack-on-the-constitution?utm_source=feed\u0026utm_medium=rss\u0026utm_content=main\u0026utm_campaign=rss',
 
 			image: 'https://en.mercopress.com/data/cache/noticias/91729/100x80/trump.jpg',
+			source: 'en',
+			language: 'en',
+			country: 'us',
+			published_at: new Date(),
+			category: 'general',
 		},
 		postIsBookmarked: false,
 		slug: 'slug',

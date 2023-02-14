@@ -4,7 +4,6 @@
 	import { slugify } from '$lib/utils/utils'
 	import type { LayoutData } from '../$types'
 	import type { Posts } from '$lib/interfaces/posts.interface'
-	import BookmarkBtn from '$lib/components/BookmarkBtn.svelte'
 	import Article from '$lib/components/Article.svelte'
 
 	export let data: LayoutData

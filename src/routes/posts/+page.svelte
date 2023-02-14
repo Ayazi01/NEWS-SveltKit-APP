@@ -4,9 +4,15 @@
 	import Postcard from '../../lib/components/Postcards.svelte'
 	import { browser } from '$app/environment'
 	// export let data: PageData;
+<<<<<<< HEAD
 	import type { LayoutData } from '../$types'
 
 	export let data: LayoutData
+=======
+	import type { PageData } from '../$types'
+
+	export let data: PageData
+>>>>>>> 8586373b294ae5dc40649f11d05da35a34976b0d
 
 	//onMounting data
 	let dataFetch = false
