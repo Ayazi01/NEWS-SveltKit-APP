@@ -1,18 +1,18 @@
 <script lang="ts">
-	import { slugify } from '$lib/utils/utils';
-	import { onMount } from 'svelte';
-	import Postcard from '../../lib/components/Postcards.svelte';
-	import { browser } from '$app/environment';
+	import { slugify } from '$lib/utils/utils'
+	import { onMount } from 'svelte'
+	import Postcard from '../../lib/components/Postcards.svelte'
+	import { browser } from '$app/environment'
 	// export let data: PageData;
-	import type { PageData } from '../$types';
+	import type { LayoutData } from '../$types'
 
-	export let data: PageData;
+	export let data: LayoutData
 
 	//onMounting data
-	let dataFetch = false;
+	let dataFetch = false
 	onMount(async () => {
-		dataFetch = true;
-	});
+		dataFetch = true
+	})
 </script>
 
 {#if browser}

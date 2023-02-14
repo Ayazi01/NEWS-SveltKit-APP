@@ -1,4 +1,4 @@
-import type { PageLoad } from './$types'
+import type { LayoutData } from './$types'
 
 let posts
 export const load = (async ({ fetch }) => {
@@ -6,4 +6,4 @@ export const load = (async ({ fetch }) => {
 	const res = await fetch(resourceUrl)
 	posts = await res.json()
 	return posts
-}) satisfies PageLoad
+}) satisfies LayoutData
