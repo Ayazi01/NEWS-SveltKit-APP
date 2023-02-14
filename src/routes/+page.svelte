@@ -2,9 +2,9 @@
 	import { slugify } from '../lib/utils/utils'
 	import { onMount } from 'svelte'
 	import Postcard from '$lib/components/Postcards.svelte'
-	import type { PageData } from './$types'
+	import type { LayoutData } from './$types'
 
-	export let data: PageData
+	export let data: LayoutData
 
 	// onmounting data
 
